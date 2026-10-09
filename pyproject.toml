@@ -1,5 +1,5 @@
 [project]
-name = "check-luck"
+name = "receipt-promo-platform"
 version = "0.1.0"
 description = "Promo application for receipt registration"
 authors = [

@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:16-alpine
-    container_name: check_luck_db
+    container_name: receipt-promo-platform_db
     restart: unless-stopped
 
     environment:
@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
     ports:
-      - "5432:5432"
+      - "5433:5432"
 
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -31,7 +31,7 @@ services:
       context: .
       dockerfile: Dockerfile
 
-    container_name: check_luck_web
+    container_name: receipt-promo-platform_web
 
     command: >
       sh -c "

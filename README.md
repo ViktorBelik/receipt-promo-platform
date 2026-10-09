@@ -21,7 +21,7 @@
 ## Структура проекта
 
 ```text
-check_luck/
+receipt-promo-platform/
 ├── backend/
 │   ├── config/              # настройки и маршрутизация Django
 │   ├── receipts/            # приложение для работы с чеками
@@ -31,6 +31,7 @@ check_luck/
 │   │   ├── models.py
 │   │   ├── urls.py
 │   │   └── views.py
+│   ├── static/              # собранные статические файлы frontend
 │   ├── templates/           # Django-шаблоны
 │   └── manage.py
 │
@@ -45,6 +46,9 @@ check_luck/
 │
 ├── .env.example
 ├── docker-compose.yaml
+├── Dockerfile
+├── poetry.lock
+├── pyproject.toml
 └── README.md
 ```
 
@@ -53,8 +57,8 @@ check_luck/
 ### 1. Клонирование репозитория
 
 ```bash
-git clone https://github.com/ViktorBelik/check_luck.git
-cd check_luck
+git clone https://github.com/ViktorBelik/receipt-promo-platform.git
+cd receipt-promo-platform
 ```
 
 ### 2. Настройка переменных окружения
@@ -71,7 +75,7 @@ LOGLEVEL=DEBUG
 
 SECRET_KEY=secret-key
 
-POSTGRES_DB=check_luck
+POSTGRES_DB=receipt-promo-platform
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 POSTGRES_HOST=db
@@ -104,6 +108,12 @@ docker compose exec web python manage.py createsuperuser
 ```
 
 После этого приложение доступно через настроенный Docker-порт.
+
+Админ-панель: http://localhost:8000/admin/
+
+Личный кабинет: http://localhost:8000/receipts/cabinet/
+
+Регистрация чека: http://localhost:8000/receipts/register/
 
 ## Реализовано
 
